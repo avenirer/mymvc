@@ -42,7 +42,7 @@ class Error
             $message .= "\n\n";
                 $exception->getLine();
             error_log($message);
-            View::renderTemplate("$code.html");
+            View::renderHtml("$code.html");
         }
     }
 }

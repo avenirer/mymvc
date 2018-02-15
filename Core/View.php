@@ -1,23 +1,10 @@
 <?php
 namespace Core;
 
+use Core\Twig\AppFunction;
+
 class View
 {
-    /*
-    public static function render($view, $args = [])
-    {
-        extract($args, EXTR_SKIP);
-        $file = APP_PATH.DIRECTORY_SEPARATOR."Views/".$view;
-
-        if (is_readable($file)) {
-            require $file;
-        }
-        else {
-            throw new \Exception("$file not found");
-        }
-    }
-    */
-
     /**
      * @param $template
      * @param array $args
@@ -31,6 +18,11 @@ class View
         if($twig === null) {
             $loader = new \Twig_Loader_Filesystem(APP_PATH.DIRECTORY_SEPARATOR.'Views');
             $twig = new \Twig_Environment($loader);
+            $function = new \Twig_Function('routeName', function($routeName) {
+                $router = new Router();
+                return $router->getUrlByRouteName($routeName);
+            });
+            $twig->addFunction($function);
         }
         echo $twig->render($template, $args);
     }

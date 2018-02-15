@@ -31,6 +31,7 @@ class Router
      */
     public function add($route, $params = [])
     {
+        $params['url'] = $route;
         // Convert the route to a regular expression: escape forward slashes
         $route = preg_replace('/\//', '\\/', $route);
 
@@ -53,6 +54,15 @@ class Router
     public function getRoutes()
     {
         return $this->routes;
+    }
+
+    public function getUrlByRouteName($routeName)
+    {
+        $routeKey = array_search($routeName, array_column($this->routes,'routeName','url'));
+        if ($routeKey !== false) {
+            return $routeKey;
+        }
+        return '';
     }
 
     /**

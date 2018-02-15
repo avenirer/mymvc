@@ -14,10 +14,12 @@ class Routes
     const ROUTES = [
         '' => [
             'controller' => 'Home',
-            'action'=>'index'],
+            'action'=>'index',
+            'routeName' => 'home'],
         'posts' => [
             'controller' => 'Posts',
-            'action'=>'index'],
+            'action'=>'index',
+            'routeName' => 'allPosts'],
         '{controller}/{action}' => [],
 
         '{controller}/{id:\d+}/{action}' => [],

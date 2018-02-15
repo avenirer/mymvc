@@ -6,8 +6,9 @@
 </head>
 <body>
     <nav>
-        <a href="/">Home</a> |
-        <a href="/posts/index">Posts</a>
+        <a href="{{ routeName('home') }}">Home</a> |
+        <a href="{{ routeName('allPosts') }}">Posts</a>
+
     </nav>
     {% block body %}
     {% endblock %}

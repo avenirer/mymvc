@@ -12,5 +12,5 @@ namespace App\Config;
 class General
 {
     // Set this to TRUE when in development and to FALSE when in production
-    const SHOW_ERRORS = false;
+    const SHOW_ERRORS = true;
 }
