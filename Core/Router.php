@@ -56,13 +56,18 @@ class Router
         return $this->routes;
     }
 
+    /**
+     * Return an url by specifying a route name
+     * @param $routeName
+     * @return string
+     */
     public function getUrlByRouteName($routeName)
     {
         $routeKey = array_search($routeName, array_column($this->routes,'routeName','url'));
         if ($routeKey !== false) {
-            return $routeKey;
+            return BASE_URL.$routeKey;
         }
-        return '';
+        return BASE_URL;
     }
 
     /**

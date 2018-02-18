@@ -1,7 +1,7 @@
 <?php
 namespace Core;
 
-use Core\Twig\AppFunction;
+use Core\Twig\AppExtensions;
 
 class View
 {
@@ -18,11 +18,7 @@ class View
         if($twig === null) {
             $loader = new \Twig_Loader_Filesystem(APP_PATH.DIRECTORY_SEPARATOR.'Views');
             $twig = new \Twig_Environment($loader);
-            $function = new \Twig_Function('routeName', function($routeName) {
-                $router = new Router();
-                return $router->getUrlByRouteName($routeName);
-            });
-            $twig->addFunction($function);
+            $twig->addExtension(new AppExtensions($loader));
         }
         echo $twig->render($template, $args);
     }
