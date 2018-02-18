@@ -22,4 +22,10 @@ set_error_handler('Core\Error::errorHandler');
 set_exception_handler('Core\Error::exceptionHandler');
 
 $router = new Core\Router();
-$router->dispatch($_SERVER['QUERY_STRING']);
+try {
+    $router->dispatch($_SERVER['QUERY_STRING']);
+}
+catch( \Exception $e) {
+    echo 'An exception was thrown while trying to dispatch route.';
+    exit;
+}
