@@ -1,9 +1,11 @@
 <?php
 
 date_default_timezone_set('Europe/Bucharest');
-define('ROOT_PATH', dirname(realpath(__FILE__)));
-define('APP_PATH', ROOT_PATH.DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR.'App');
-define('CORE_PATH', ROOT_PATH.DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR.'Core');
+date_default_timezone_set('Europe/Bucharest');
+define('PUBLIC_PATH', dirname(realpath(__FILE__)));
+define('ROOT_PATH', PUBLIC_PATH.DIRECTORY_SEPARATOR.'..');
+define('APP_PATH', ROOT_PATH.DIRECTORY_SEPARATOR.'App');
+define('CORE_PATH', ROOT_PATH.DIRECTORY_SEPARATOR.'Core');
 define('CONFIG_PATH', APP_PATH.DIRECTORY_SEPARATOR.'Config');
 define('BASE_URL', 'http://mymvc.localhost/');
 
