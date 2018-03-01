@@ -1,7 +1,6 @@
 <?php
 
 date_default_timezone_set('Europe/Bucharest');
-date_default_timezone_set('Europe/Bucharest');
 define('PUBLIC_PATH', dirname(realpath(__FILE__)));
 define('ROOT_PATH', PUBLIC_PATH.DIRECTORY_SEPARATOR.'..');
 define('APP_PATH', ROOT_PATH.DIRECTORY_SEPARATOR.'App');
